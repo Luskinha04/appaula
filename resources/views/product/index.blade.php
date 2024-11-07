@@ -1,3 +1,4 @@
+<a href="{{ route('products.create') }}">Cadastrar</a>
 <title>Tabela de Produtos</title>
 </head>
 <body>
