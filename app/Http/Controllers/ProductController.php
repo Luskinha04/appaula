@@ -53,7 +53,13 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = Product::find((int)$id);
+        if(isset($product)){
+            back();
+        }
+
+        return view('product.edit', compact('product'));
+
     }
 
     /**
@@ -61,7 +67,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $product = Product::find((int)$id);
+        if(isset($product)){
+            back();
+        }
+
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0'
+        ]);
+
+        $product->update($validatedData);
+        return redirect()->route('products.index');
     }
 
     /**
