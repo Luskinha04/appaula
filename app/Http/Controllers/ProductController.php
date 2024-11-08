@@ -14,7 +14,7 @@ class ProductController extends Controller
     public function index(Product $product)
     {
         $products = $product->all();
-        return view ("product.index", compact('products'));
+        return view("product.index", compact('products'));
     }
 
     /**
@@ -22,7 +22,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view ("product.create");
+        return view("product.create");
     }
 
     /**
@@ -39,8 +39,15 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $product = Product::find((int)$id);
+    
+        if (!isset($product)) {
+            back();
+        }
+    
+        return view('product.show', compact('product'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -48,12 +55,11 @@ class ProductController extends Controller
     public function edit(string $id)
     {
         $product = Product::find((int)$id);
-        if(isset($product)){
+        if (isset($product)) {
             back();
         }
 
         return view('product.edit', compact('product'));
-
     }
 
     /**
@@ -62,7 +68,7 @@ class ProductController extends Controller
     public function update(StoreUpdateProductRequest $request, string $id)
     {
         $product = Product::find((int)$id);
-        if(isset($product)){
+        if (isset($product)) {
             back();
         }
 

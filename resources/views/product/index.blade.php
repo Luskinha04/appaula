@@ -11,6 +11,7 @@
             <th>Preço</th>
             <th>Estoque</th>
             <th>Atualizar</th>
+            <th>Visualizar</th>
         </tr>
         @foreach ($products as $product)
         <tr>
@@ -19,6 +20,7 @@
             <td>{{$product -> price}}</td>
             <td>{{$product -> stock}}</td>
             <td><a href="{{route('products.edit', $product->id)}}">Editar</td>
+            <td><a href="{{route('products.show', $product->id)}}">Mostrar</td>
         @endforeach
         </tr>
     </table>
