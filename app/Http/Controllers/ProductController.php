@@ -40,11 +40,11 @@ class ProductController extends Controller
     public function show(string $id)
     {
         $product = Product::find((int)$id);
-    
+
         if (!isset($product)) {
             back();
         }
-    
+
         return view('product.show', compact('product'));
     }
 
@@ -81,6 +81,14 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $product = Product::find((int)$id);
+
+        if (!isset($product)) {
+            return redirect()->route('products.index')->with('error', 'Produto não encontrado.');
+        }
+
+        $product->delete();
+
+        return redirect()->route('products.index')->with('success', 'Produto excluído com sucesso.');
     }
 }
