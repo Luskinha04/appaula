@@ -1,3 +1,6 @@
+@extends('product.layouts.app')
+@section('content')
+
 <h2>Detalhes do Produto</h2>
 
 <form>
@@ -15,3 +18,4 @@
 
     <a href="{{ route('products.index') }}" class="btn btn-primary">Voltar</a>
 </form>
+@endsection

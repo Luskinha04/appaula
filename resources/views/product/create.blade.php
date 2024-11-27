@@ -1,3 +1,5 @@
+@extends('product.layouts.app')
+@section('content')
 @if($errors->any())
 @foreach($errors->all() as $error)
 {{$error}}
@@ -20,3 +22,4 @@
 
     <input type="submit" value="Cadastrar Produto">
 </form>
+@endsection

@@ -1,8 +1,5 @@
-@if($errors->any())
-@foreach($errors->all() as $error)
-{{$error}}
-@endforeach
-@endif
+@extends('product.layouts.app')
+@section('content')
 <h2>Cadastro de Produto</h2>
 <form action="{{route('products.update', $product->id)}}" method="post">
     @csrf()
@@ -22,3 +19,4 @@
 
     <input type="submit" value="Cadastrar Produto">
 </form>
+@endsection

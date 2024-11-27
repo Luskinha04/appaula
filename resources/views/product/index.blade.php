@@ -1,7 +1,7 @@
-<a href="{{ route('products.create') }}">Cadastrar</a>
+@extends('product.layouts.app')
+@section('content')
+
 <title>Tabela de Produtos</title>
-</head>
-<body>
     <h2>Produtos</h2>
     <table border="1">
         <tr>
@@ -31,5 +31,4 @@
         </tr>
         @endforeach
     </table>
-</body>
-</html>
+@endsection
